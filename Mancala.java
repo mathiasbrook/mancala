@@ -6,7 +6,6 @@ public class Mancala{
   int[] board = new int[14];
  
   public Mancala(){
-     
   }
   
   //Converts player friendly indexes to raw array indexes
@@ -38,7 +37,6 @@ public class Mancala{
   //sets the values on the board 
   //true indicates player side
   //false indicates computer side
-  //may assume correct input since it is a private method
   private void set(boolean playerComputer,int index,int num){
    int i = convert(playerComputer,index); //converts index to raw array index
    board[i] = num;
@@ -49,7 +47,6 @@ public class Mancala{
   //or the hole is empty
   //true indicates player side
   //false indicates computer side
-  //may assume valid input since it is a private method
   private boolean pick(boolean playerComputer,int index){
    int i = convert(playerComputer, index); //converts index to raw array index
    int count = board[i];
@@ -64,7 +61,7 @@ public class Mancala{
             return false;
          }
          count--;
-      } else if (i == 6 && playerComputer == true && count >= 1) { //if computer's stone has landed in its mancala, add one point to the mancala
+      } else if (i == 6 && playerComputer == true && count >= 1) { //if player's stone has landed in its mancala, add one point to the mancala
          board[i]++;
          if (count == 1) { //if that stone was the last stone, set next turn to be player again
             count--;
@@ -137,8 +134,7 @@ public class Mancala{
   
   
   
-//Plays the game. Be sure to use the value returned by pick to determine whose turn it is.
-//Once the game is over, announce the winner
+  //Plays the game against the computer. pick() decides whose turn is next
   public void play(){ //start a game with player starting first
     initialize(); //sets up the board
     Scanner scan = new Scanner(System.in);
