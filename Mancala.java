@@ -104,13 +104,13 @@ public class Mancala{
   }
   
   //Determines if the game is over
-  //If the game is over, moves the stones from the loser's side to the
-  //winner's mancala
+  //If the game is over, the leftover stones go to the mancala of
+  //whoever's side they are on
   private boolean gameOver(){
     int sum;
     if (board[0] == 0 && board[1] == 0 && board[2] == 0 && board[3] == 0 && board[4] == 0 && board[5] == 0) { //detects if players's side is empty
       sum = board[7] + board[8] + board[9] + board[10] + board[11] + board[12]; //takes the sum of all rocks in computer's area
-      board[6] += sum; //adds the sum of rocks to player's mancala
+      board[13] += sum; //adds the sum of rocks to computer's mancala
       board[7] = 0; //empties all computer holes
       board[8] = 0;
       board[9] = 0;
@@ -120,7 +120,7 @@ public class Mancala{
       return true;  
     } else if (board[7] == 0 && board[8] == 0 && board[9] == 0 && board[10] == 0 && board[11] == 0 && board[12] == 0) { //detects if computer's side is empty
       sum = board[0] + board[1] + board[2] + board[3] + board[4] + board[5]; //takes the sum of all rocks in player's area
-      board[13] += sum; //adds the sum of rocks to computer's mancala
+      board[6] += sum; //adds the sum of rocks to player's mancala
       board[0] = 0; //empties all player holes
       board[1] = 0;
       board[2] = 0;
