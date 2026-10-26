@@ -20,18 +20,7 @@ public class Mancala{
   //Takes all the rocks from the hole opposite of the empty hole and put them in the side with the previously empty hole's mancala
   private int steal(int index) {
     int take = 0;
-    int opposite = 0;
-    if (index == 0) opposite = 12;
-    else if (index == 1) opposite = 11;
-    else if (index == 2) opposite = 10;
-    else if (index == 3) opposite = 9;
-    else if (index == 4) opposite = 8;
-    else if (index == 5) opposite = 7;
-    else if (index == 11) opposite = 1;
-    else if (index == 10) opposite = 2;
-    else if (index == 9) opposite = 3;
-    else if (index == 8) opposite = 4;
-    else if (index == 7) opposite = 5;
+    int opposite = 12 - index; //holes across from each other always add up to 12
     take = board[opposite];
     board[opposite] = 0;
     return take;
