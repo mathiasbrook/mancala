@@ -8,7 +8,7 @@ A console version of Mancala in Java where you play against the computer.
 - Captures: if your last stone lands in an empty hole on your side, you take the stones in the hole across from it
 - The computer picks a random non-empty hole and also gets extra turns and captures
 - Checks for invalid input and empty holes
-- When one side runs out of stones the game ends, the leftover stones get moved to the player who cleared their side, and the winner (or a tie) is printed
+- When one side runs out of stones the game ends, the stones left on each side go into that side's store (standard rules), and the winner (or a tie) is printed
 
 ## How to run
 ```
@@ -35,42 +35,49 @@ Player 3
 0             1
   4 4 0 5 5 5
 Your turn. Enter a number between 1-6
-> 6
-Player 6
-  4 4 5 5 5 5
+> 4
+Player 4
+  4 4 4 4 5 5
 0             2
-  4 4 0 5 5 0
-Computer 5
-  5 0 5 5 5 5
-1             2
-  5 5 0 5 5 0
-Your turn. Enter a number between 1-6
-> 1
-Player 1
-  5 0 5 5 5 0
-1             7
-  0 6 1 6 6 1
+  4 4 0 0 6 6
 Computer 2
-  6 1 6 6 0 0
-2             7
-  0 6 1 6 6 1
-Computer 3
-  7 2 7 0 0 0
+  5 5 5 5 0 5
+1             2
+  4 4 0 0 6 6
+Computer 4
+  6 6 0 5 0 5
+2             2
+  5 5 0 0 6 6
+Your turn. Enter a number between 1-6
+> 2
 ```
 ...
 ```
-Your current area has no rocks. Please select another area
+Player 2
+  0 1 0 0 0 0
+17             25
+  1 0 2 1 1 0
+Computer 5
+  1 0 0 0 0 0
+18             25
+  0 0 2 1 1 0
 Your turn. Enter a number between 1-6
-> 6
-Player 6
-  1 2 1 0 0 0
-23             21
+> 3
+Player 3
+  1 0 0 0 0 0
+18             25
+  0 0 0 2 2 0
+Computer 6
   0 0 0 0 0 0
+19             25
+  0 0 0 2 2 0
 The Player has won!
   0 0 0 0 0 0
-23             25
+19             29
   0 0 0 0 0 0
 ```
+
+The computer emptied its side, so the 4 stones left on my side went into my store.
 
 ## Concepts used
 - Arrays (the whole board is one `int[14]` with the two stores at index 6 and 13)
