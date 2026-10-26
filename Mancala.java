@@ -176,8 +176,8 @@ public class Mancala{
     }
   }   
                                 
-  public static void main(String[] args){
-    
+  //runs the test moves from class (java Mancala test)
+  public static void runTests(){
     Mancala mygame = new Mancala();
     mygame.initialize();
     System.out.println(mygame);
@@ -231,8 +231,14 @@ public class Mancala{
     System.out.println(mygame);
     System.out.println("Game Over expected true "+mygame.gameOver()); 
     System.out.println(mygame);
-    System.out.println("==================");
-    Mancala game = new Mancala();
-    game.play();
+  }
+
+  public static void main(String[] args){
+    if (args.length > 0 && args[0].equals("test")) {
+      runTests();
+    } else {
+      Mancala game = new Mancala();
+      game.play();
+    }
   }
 }
